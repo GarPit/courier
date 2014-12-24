@@ -1,3 +1,4 @@
+# Controller for Couriers
 class CouriersController < ApplicationController
 
   before_action :require_user
