@@ -30,7 +30,6 @@ gem "twitter-bootstrap-rails"
 gem "russian"
 gem "bcrypt-ruby", '3.1.2'
 
-gem "byebug"
 
 group :test do
   gem 'cucumber-rails', :require => false
@@ -45,8 +44,15 @@ end
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+group :development do
+  gem "byebug"
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
+end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem "foreman"
+gem "foreman-export-initscript", :github => "webgradus/foreman-export-initscript"
