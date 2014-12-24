@@ -1,0 +1,9 @@
+<h1>Привет, <%= @runner.last_name %></h1>
+<br>
+<p>
+  У вас есть новое событие:
+  <br>
+  Дата - <%= @event.delivery_date.to_s %>
+  <br>
+  Место - <%= @event.destination.name %>
+</p>

@@ -1,0 +1,3 @@
+class Runner < ActiveRecord::Base
+  scope :id_greater_than_zero_ordered_by_first_name, lambda { where("id > 0").order("first_name desc") }
+end

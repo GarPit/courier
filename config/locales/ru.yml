@@ -1,0 +1,21 @@
+ru:
+  test:
+    child: "Тест"
+  helpers:
+    links:
+      new: "Добавить"
+      edit: "Редактировать"
+      destroy: "Удалить"
+      confirm: "Вы уверены?"
+  activerecord:
+    models:
+      runner:
+        one: "Курьер"
+        few: "Курьера"
+        many: "Курьеров"
+        other: "Курьеры"
+    attributes:
+      runner:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        created_at: "Дата создания"

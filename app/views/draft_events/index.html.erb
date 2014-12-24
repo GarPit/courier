@@ -1,0 +1,43 @@
+<%- model_class = DraftEvent -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:destination_id) %></th>
+      <th><%= model_class.human_attribute_name(:due_date) %></th>
+      <th><%= model_class.human_attribute_name(:event_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @draft_events.each do |draft_event| %>
+      <tr>
+        <td><%= link_to draft_event.id, draft_event_path(draft_event) %></td>
+        <td><%= draft_event.destination.name %></td>
+        <td><%= draft_event.due_date %></td>
+        <td><%= draft_event.event_id %></td>
+        <td><%=l draft_event.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_draft_event_path(draft_event), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      draft_event_path(draft_event),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_draft_event_path,
+            :class => 'btn btn-primary' %>
+<%= link_to t('make_schedule'),
+            make_schedule_draft_events_path,
+            :class => 'btn btn-primary' %>
