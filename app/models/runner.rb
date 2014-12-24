@@ -1,5 +1,5 @@
+# Класс, представляющий собой сущность "Курьер"
 class Runner < ActiveRecord::Base
-  scope :id_greater_than_zero_ordered_by_first_name, lambda { where("id > 0").order("first_name desc") }
   has_many :events
   has_many :destinations, through: :events
 
@@ -12,6 +12,7 @@ class Runner < ActiveRecord::Base
     ['Brad', 'Tom'].include?(self.first_name)
   end
 
+  # метод, позволяющий аутентифицировать пользователя
   def authenticate(password)
   end
 end
