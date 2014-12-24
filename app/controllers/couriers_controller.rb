@@ -1,6 +1,7 @@
 # Controller for Couriers
 class CouriersController < ApplicationController
 
+  # это нужно для авторизации пользователя
   before_action :require_user
 
   def index
